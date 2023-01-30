@@ -23,7 +23,7 @@ class Blockchain:
     return block
   
 
-  def new_transaction(self):
+  def new_transaction(self, sender, recipient, amount):
     # adds a new transaction to the list of transactions
     # create new transaction, send to the next block. 
     # transaction contains var. sender, recipient and amount
@@ -36,21 +36,16 @@ class Blockchain:
     )
     return self.last_block['index'] + 1
 
-  def register_node(self):
+  def register_node(self, address):
     # add a new node to the list of nodes
     # add it to the network
-    pass
- 
-  def valid_proof(self):
-    # determine if submitted block to the chain solves the problem
-    pass
+    self.nodes.add(address)
 
   def valid_chain(self):
     # determine if a given blockchain is valid
     pass
 
   @staticmethod
-
   def hash(block):
     # hashes a block
     block_string = json.dumps(block, sort_keys=True).encode()
