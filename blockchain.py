@@ -13,9 +13,10 @@ class Blockchain:
 
   def new_block(self, proof, previous_hash=None):
     # create a new block and add it to the chain
+    current_time = time.time()
     block = {
       'index': len(self.chain) + 1,
-      'timestamp': time(),
+      'timestamp': current_time,
       'proof': proof,
       'previous_hash': previous_hash or self.hash(self.chain[-1]),
     }
