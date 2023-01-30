@@ -33,7 +33,7 @@ def mine():
   response = {
     'message': "New Block Forged",
     'index': block['index'],
-    'transactions': block['transactions'],
+    'transactions': block.get('transactions', []),
     'proof': block['proof'],
     'previous_hash' : block['previous_hash']
   }
