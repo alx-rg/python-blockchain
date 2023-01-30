@@ -1,4 +1,9 @@
 # create a blockchain class
+import hashlib
+import json
+import time
+
+
 class Blockchain:
   def __init__(self):
     self.chain = []
@@ -48,11 +53,27 @@ class Blockchain:
 
   def hash(block):
     # hashes a block
-    pass
+    block_string = json.dumps(block, sort_keys=True).encode()
+    return hashlib.sha256(block_string).hexdigest()
 
   @property
 
   def last_block(self):
     # returns the last block in the chain 
     return self.chain[-1]
+
+  def proof_of_work(self, last_proof):
+    # method where concensus algorithm implemented
+    #takes two parameters, self & last proof 
+    proof = 0
+    while self.valid_proof(last_proof, proof) is False:
+      proof += 1
+    return proof
+  
+  @staticmethod
+  def valid_proof(last_proof, proof):
+    # validate the proof:
+    guess = f'{last_proof}{proof}'.encode()
+    guess_hash = hashlib.sha256(guess).hexdigest()
+    return guess_hash[:4] == "0000"
   
