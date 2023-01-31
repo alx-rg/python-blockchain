@@ -16,9 +16,10 @@ This code is a simple implementation of a blockchain in Python. The code consist
 
 The `flaskapi.py` file creates a Flask API that serves as the interface for interacting with the blockchain. The API has three routes:
 
-`/mine:` This endpoint implements the proof of work algorithm, creates a new block and adds it to the chain.
-`/transactions/new:` This endpoint creates a new transaction to be added to the next mined block.
-`/chain:` This endpoint returns the full chain.
+- `/mine:` This endpoint implements the proof of work algorithm, creates a new block and adds it to the chain.
+- `/transactions/new:` This endpoint creates a new transaction to be added to the next mined block.
+- `/chain:` This endpoint returns the full chain.
+
 The blockchain.py file implements the Blockchain class. The class has several methods that allow adding a new block, new transactions, and registering new nodes. It also includes methods for checking if a chain is valid, resolving conflicts among chains, and implementing the proof of work algorithm.
 
 # Testing the API using Postman
